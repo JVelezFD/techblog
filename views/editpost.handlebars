@@ -1,0 +1,23 @@
+{{!-- handlebar to handle update and delete request --}}
+
+
+<div class="card">
+    <h3 class="card-header">Update Post</h3>
+
+
+    <form class="card-body updatepost-form">
+        <label for="title-post" class="form-label">Title</label>
+        <input name="title-post" type="text" value="{{post.title}}" class="form-input" />
+
+        <label class="form-label" for="content">Content</label>
+        <input name="content" type="text" value="{{post.content}}" class="form-input" />
+
+        <button type="submit" class="btn">Update Post</button>
+
+        <button type="button" class="deletepost-btn btn">Delete Post</button>
+    </form>
+</div>
+
+
+<script src="/public/js/updatepost.js"></script>
+<script src="/public/js/deletepost.js"></script>
