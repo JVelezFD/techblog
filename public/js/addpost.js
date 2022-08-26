@@ -1,3 +1,5 @@
+
+
 const newFormHandler = async (event) => {
     event.preventDefault();
   
@@ -6,8 +8,8 @@ const newFormHandler = async (event) => {
   
   
   
-    if (content && title) {
-      const response = await fetch("api/post/post", {
+    if (title && content) {
+      const response = await fetch("api/posts", {
         method: "POST",
         body: JSON.stringify({  title, content, }),
         headers: { "Content-Type": "application/json" },
