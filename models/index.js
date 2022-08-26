@@ -20,8 +20,6 @@ if (config.use_env_variable) {
   );
 }
 
-
-
 db.sequelize = sequelize;
 
 module.exports = db;
