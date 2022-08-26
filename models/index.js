@@ -1,5 +1,4 @@
 //requirements
-
 const fs = require("fs");
 const path = require("path");
 const Sequelize = require("sequelize");
@@ -24,18 +23,35 @@ db.sequelize = sequelize;
 
 module.exports = db;
 
-const User = require("./users.js");
-const Post = require("./post.js");
+const User = require("./users");
+const Post = require("./post");
+const Comment = require("./comment")
 
-User.hasMany(Event, {
-  foreignKey: "user_id",
-  targetKey: "id",
-  onDelete: "CASCADE",
+User.hasMany(Post, {
+  foreignKey: 'user_id'
 });
-
 Post.belongsTo(User, {
-  foreignKey: "user_id",
-  targetKey: "id",
+  foreignKey: 'user_id',
+  onDelete: "cascade"
 });
 
-module.exports = { User, Post };
+Comment.belongsTo(User, {
+  foreignKey: 'user_id',
+  onDelete: "cascade"
+});
+
+Comment.belongsTo(Post, {
+  foreignKey: 'post_id',
+  onDelete: "cascade"
+});
+
+User.hasMany(Comment, {
+  foreignKey: 'user_id',
+  onDelete: "cascade"
+});
+
+Post.hasMany(Comment, {
+  foreignKey: 'post_id',
+  onDelete: "cascade"
+})
+module.exports = { User, Post, Comment };
