@@ -5,7 +5,7 @@
 <section>
   <h2>Your Posts</h2>
     {{#each posts as |post|}}
-      {{> dashboard-postinfo post}}
+      {{> dashboardpost post}}
     {{/each}}
 
 </section>
@@ -13,4 +13,4 @@
 
 <button type="submit" class="btn"><a class="link" href="/dashboard/new">+ New Post</a></button>
 
-<script src="/public/js/addpost.js"></script>
+<script src="/js/addpost.js"></script>

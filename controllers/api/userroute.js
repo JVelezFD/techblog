@@ -78,17 +78,19 @@ router.post('/', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
+    console.log ('tacocat');
     User.findOne({
             where: {
                 username: req.body.username
             }
         }).then(dbUserData => {
+          
             if (!dbUserData) {
                 res.status(400).json({ message: 'No user with that username!' });
                 return;
             }
             const validPassword = dbUserData.checkPassword(req.body.password);
-
+            console.log(validPassword);
             if (!validPassword) {
                 res.status(400).json({ message: 'Incorrect password!' });
                 return;

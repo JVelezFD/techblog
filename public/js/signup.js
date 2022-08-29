@@ -1,4 +1,5 @@
 const signupFormHandler = async (event) => {
+  console.log('tacocat')
     event.preventDefault();
   
     const username = document.querySelector("#username-signup").value;
@@ -25,6 +26,6 @@ const signupFormHandler = async (event) => {
   };
   
   document
-    .querySelector(".signup-form")
+    .querySelector("#signup-form")
     .addEventListener("submit", signupFormHandler);
   
