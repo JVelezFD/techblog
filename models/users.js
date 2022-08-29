@@ -21,19 +21,11 @@ User.init(
       allowNull: false,
       unique: true
     },    
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
-    },
-      password: {
+     password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [5],
+        len: [4],
       },
     },
   },
@@ -43,6 +35,10 @@ User.init(
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
+      async beforeUpdate(updatedUserData) {
+        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        return updatedUserData;
+    }
     },
     sequelize,
     timestamps: false,
