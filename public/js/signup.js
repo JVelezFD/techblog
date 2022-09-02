@@ -1,5 +1,5 @@
 const signupFormHandler = async (event) => {
-  console.log('tacocat')
+  
     event.preventDefault();
   
     const username = document.querySelector("#username-signup").value;

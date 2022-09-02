@@ -1,8 +1,8 @@
 async function updateFormHandler(event) {
     event.preventDefault();
 
-    const title = document.querySelector('input[name="title-post"]').value.trim();
-    const content = document.querySelector('input[name="content"]').value.trim();
+    const title = document.querySelector('#updatetitle').value;
+    const content = document.querySelector('#updatecontent').value;
     console.log(title);
     console.log(content);
 
